@@ -79,7 +79,7 @@ class FrontEndController extends Controller
         }
     }
 
-    public function message(Request $request)
+    public function send_message(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:200',

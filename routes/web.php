@@ -33,21 +33,22 @@ Route::get('/tag/{slug}', [FrontEndController::class,'tag'])->name('website.tag'
 Route::get('/contact', [FrontEndController::class,'contact'])->name('website.contact');
 Route::get('/post/{slug}', [FrontEndController::class, 'post'])->name('website.post');
 
-Route::post('/contact', [FrontEndController::class, 'send_message'])->name('website.contact');
+Route::post('/contact', [FrontEndController::class, 'send_message'])->name('website.message');
 
 Route::get('/dashboard', function () {
     return view('admin/dashboard/index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::get('/profile', [ProfileController::class, 'create'])->name('profile.create');
-    Route::get('/profile', [ProfileController::class, 'store'])->name('profile.store');
+    Route::get('/user', [ProfileController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [ProfileController::class, 'create'])->name('user.create');
+    Route::post('/user', [ProfileController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}/edit', [ProfileController::class, 'edit'])->name('user.edit');
+    Route::put('/user/update/{user}', [ProfileController::class, 'update'])->name('user.update');
+    Route::Delete('/user/{user}', [ProfileController::class, 'destroy'])->name('user.destroy');
+
     Route::get('/profile', [ProfileController::class, 'profile'])->name('user.profile');
-    Route::post('/profile', [ProfileController::class, 'profile_update'])->name('user.profile.update');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/profile/update/{user}', [ProfileController::class, 'profile_update'])->name('user.profile.update');
 });
 
 Route::middleware('auth')->group(function () {
@@ -77,9 +78,9 @@ Route::middleware('auth')->group(function () {
 
 
     //  Contact message
-    Route::get('admin/contact',[ContactController::class,'index'])->name('contact.index');
-    Route::get('/contact/show/{id}',[ContactController::class,'show'])->name('contact.show');
-    Route::delete('/contact/delete/{id}',[ContactController::class,'destroy'])->name('contact.destroy');
+    Route::get('message',[ContactController::class,'index'])->name('contact.index');
+    Route::get('/message/show/{id}',[ContactController::class,'show'])->name('contact.show');
+    Route::delete('/message/delete/{id}',[ContactController::class,'destroy'])->name('contact.destroy');
 
 
     // setting
