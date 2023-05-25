@@ -10,7 +10,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('website') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                     <li class="breadcrumb-item active">Post list</li>
                 </ol>
             </div><!-- /.col -->
@@ -68,8 +68,8 @@
                                         <td class="d-flex">
                                             <a href="{{ route('post.show', [$post->id]) }}" class="btn btn-sm btn-success mr-1"> <i class="fas fa-eye"></i> </a>
                                             <a href="{{ route('post.edit', [$post->id]) }}" class="btn btn-sm btn-primary mr-1"> <i class="fas fa-edit"></i> </a>
-                                            <a href="{{ route('website.post', [$post->slug]) }}" target="_blank" class="btn btn-sm btn-dark mr-1"> <i class="fas fa-link"></i> </a>
-                                            <form action="{{ route('post.destroy', [$post->id]) }}" class="mr-1" method="POST">
+                                            <a href="" target="_blank" class="btn btn-sm btn-dark mr-1"> <i class="fas fa-link"></i> </a>
+                                            <form action="" class="mr-1" method="POST">
                                                 @method('DELETE')
                                                 @csrf 
                                                 <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>

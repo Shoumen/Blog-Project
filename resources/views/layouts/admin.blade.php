@@ -67,7 +67,7 @@
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="{{route('admin.category')}}" class="nav-link {{ (request()->is('admin/category')) ? 'active': '' }}">
+            <a href="{{ route('admin.category') }}" class="nav-link {{ (request()->is('admin/category*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-tags"></i>
               <p>
                 Categories
@@ -75,7 +75,7 @@
             </a>                    
           </li>
           <li class="nav-item mt-auto">
-            <a href="" class="nav-link {{ (request()->is('contents/admin/tag*')) ? 'active': '' }}">
+            <a href="{{ route('tag.index') }}" class="nav-link {{ (request()->is('admin/tag*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-tag"></i>
               <p>
                 Tags
@@ -83,7 +83,7 @@
             </a>                    
           </li>
           <li class="nav-item mt-auto">
-            <a href="" class="nav-link {{ (request()->is('contents/admin/post*')) ? 'active': '' }}">
+            <a href="{{ route('post.index') }}" class="nav-link {{ (request()->is('admin/post*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-pen-square"></i>
               <p>
                 Post
@@ -91,7 +91,7 @@
             </a>                    
           </li>
           <li class="nav-item mt-auto">
-            <a href="" class="nav-link {{ (request()->is('contents/admin/contact*')) ? 'active': '' }}">
+            <a href="{{ route('contact.index') }}" class="nav-link {{ (request()->is('admin/contact*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Messages
@@ -99,7 +99,7 @@
             </a>                    
           </li>
           <li class="nav-item mt-auto">
-            <a href="" class="nav-link {{ (request()->is('contents/admin/user*')) ? 'active': '' }}">
+            <a href="#" class="nav-link {{ (request()->is('admin/user*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 User
@@ -107,7 +107,7 @@
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="" class="nav-link {{ (request()->is('contents/admin/setting')) ? 'active': '' }}">
+            <a href="{{ route('setting.index') }}" class="nav-link {{ (request()->is('admin/setting')) ? 'active': '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Setting
@@ -116,7 +116,7 @@
           </li>
           <li class="nav-header">Your Account</li>
           <li class="nav-item mt-auto">
-            <a href="" class="nav-link {{ (request()->is('contents/admin/profile')) ? 'active': '' }}">
+            <a href="{{ route('profile.edit') }}" class="nav-link {{ (request()->is('admin/profile')) ? 'active': '' }}">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Your Profile
@@ -124,7 +124,7 @@
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Logout
@@ -132,7 +132,7 @@
             </a>
           </li>
           <li class="text-center mt-5">
-            <a href="{{url('/')}}" class="btn btn-primary text-white" target="_blank">
+            <a href="{{ url('/') }}" class="btn btn-primary text-white" target="_blank">
               <p class="mb-0">
                 View Website
               </p>
@@ -155,7 +155,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      <div class="mb-0">Developed By Zakir on <a href="https://www.youtube.com/playlist?list=PLl4v4A2HI0YixTm5AsoTu-sKxiQti4-r6">Laravel Blog Development </a>Tutorial Series</div>
+      <div class="mb-0">Developed By Shoumen Mondal on <a href="https://github.com/Shoumen/Blog-Project">Laravel Blog-Project Development </a>All Project</div>
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.

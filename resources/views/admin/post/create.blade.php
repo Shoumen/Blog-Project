@@ -10,7 +10,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('website') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('post.index') }}">Post list</a></li>
                     <li class="breadcrumb-item active">Create Post</li>
                 </ol>
@@ -94,11 +94,11 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('/admin/css/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('contents/admin/css/summernote-bs4.min.css') }}">
 @endsection
 
 @section('script')
-    <script src="{{ asset('/admin/js/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('contents/admin/js/summernote-bs4.min.js') }}"></script>
     <script>
         $('#description').summernote({
             placeholder: 'Hello Bootstrap 4',

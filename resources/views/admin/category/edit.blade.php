@@ -35,7 +35,7 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-12 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-                                <form action="{{ route('admin.category.upadte', [$category->id]) }}" method="POST">
+                                <form action="{{ route('admin.category.update', [$category->id]) }}" method="POST">
                                     @csrf 
                                     @method('PUT')
                                     <div class="card-body">

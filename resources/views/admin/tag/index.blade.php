@@ -10,7 +10,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('website') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                     <li class="breadcrumb-item active">Tag list</li>
                 </ol>
             </div><!-- /.col -->
@@ -56,7 +56,7 @@
                                                 @csrf 
                                                 <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
                                             </form>
-                                            {{-- <a href="{{ route('tag.show', [$tag->id]) }}" class="btn btn-sm btn-success mr-1"> <i class="fas fa-eye"></i> </a> --}}
+                                            {{-- <a href="" class="btn btn-sm btn-success mr-1"> <i class="fas fa-eye"></i> </a> --}}
                                         </td>
                                     </tr>
                                 @endforeach

@@ -4,41 +4,41 @@
     <div class="container">
         <div class="row align-items-stretch retro-layout-2">
             <div class="col-md-4">
-                
-                <a href="#" class="h-entry mb-30 v-height gradient"
-                    style="background-image: ;">
+                @foreach($firstPosts2 as $post)
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="h-entry mb-30 v-height gradient"
+                    style="background-image: url('{{ $post->image }}');">
 
                     <div class="text">
-                        <h2></h2>
-                        <span class="date"></span>
+                        <h2>{{ $post->title }}</h2>
+                        <span class="date">{{ $post->created_at->format('M d, Y')}}</span>
                     </div>
                 </a>
-               
+                @endforeach
             </div>
             <div class="col-md-4">
-               
-                <a href="#" class="h-entry img-5 h-100 gradient"
-                    style="background-image: ">
+                @foreach($middlePost as $post)
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="h-entry img-5 h-100 gradient"
+                    style="background-image: url('{{ $post->image }}'">
                     <div class="text">
                         <div class="post-categories mb-3">
-                            <span class="post-category bg-danger"></span>
+                            <span class="post-category bg-danger">{{ $post->category->name }}</span>
                         </div>
-                        <h2></h2>
-                        <span class="date"></span>
+                        <h2>{{ $post->title }}</h2>
+                        <span class="date">{{ $post->created_at->format('M d, Y')}}</span>
                     </div>
                 </a>
-                
+                @endforeach
             </div>
             <div class="col-md-4">
-                
-                <a href="#" class="h-entry mb-30 v-height gradient"
-                    style="background-image: ;">
+                @foreach($lastPosts as $post)
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="h-entry mb-30 v-height gradient"
+                    style="background-image: url('{{ $post->image }}');">
                     <div class="text">
-                        <h2></h2>
-                        <span class="date"></span>
+                        <h2>{{ $post->title }}</h2>
+                        <span class="date">{{ $post->created_at->format('M d, Y')}}</span>
                     </div>
                 </a>
-                
+                @endforeach
             </div>
         </div>
     </div>
@@ -52,31 +52,31 @@
             </div>
         </div>
         <div class="row">
-           
+            @foreach($recentPosts as $post)
             <div class="col-lg-4 mb-4">
                 <div class="entry2">
-                    <a href="#"><img src=""
+                    <a href="{{ route('website.post', ['slug' => $post->slug]) }}"><img src="{{ $post->image }}"
                             alt="Image" class="img-fluid rounded"></a>
                     <div class="excerpt">
-                        <span class="post-category text-white bg-secondary mb-3"></span>
+                        <span class="post-category text-white bg-secondary mb-3">{{ $post->category->name }}</span>
 
-                        <h2><a href="#"></a></h2>
+                        <h2><a href="{{ route('website.post', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
                         <div class="post-meta align-items-center text-left clearfix">
                             <figure class="author-figure mb-0 mr-3 float-left"><img
-                                    src=""
+                                    src="@if($post->user->image) {{ $post->user->image }} @else {{ asset('website/images/user.png') }} @endif"
                                     alt="Image" class="img-fluid"></figure>
-                            <span class="d-inline-block mt-1">By <a href="#"></a></span>
-                            <span>&nbsp;-&nbsp;  </span>
+                            <span class="d-inline-block mt-1">By <a href="#">{{ $post->user->name }}</a></span>
+                            <span>&nbsp;-&nbsp; {{ $post->created_at->format('M d, Y') }} </span>
                         </div>
-                        <p>  </p>
-                        <p><a href="#">Read More</a></p>
+                        <p> {{ Str::limit($post->description, 100) }} </p>
+                        <p><a href="{{ route('website.post', ['slug' => $post->slug]) }}">Read More</a></p>
                     </div>
                 </div>
             </div>
-          
+            @endforeach
         </div>
         <div class="row text-center pt-5 border-top">
-            
+            {{ $recentPosts->links() }}
             {{-- <div class="col-md-12">
           <div class="custom-pagination">
             <span>1</span>
@@ -94,41 +94,41 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row align-items-stretch retro-layout">
-           
+            @foreach($lastFooterPost as $post)
             <div class="col-md-5 order-md-2">
-                <a href="#" class="hentry img-1 h-100 gradient"
-                    style="background-image: ;">
-                    <span class="post-category text-white bg-danger"></span>
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="hentry img-1 h-100 gradient"
+                    style="background-image: url('{{ $post->image }}');">
+                    <span class="post-category text-white bg-danger">{{ $post->category->name }}</span>
                     <div class="text">
-                        <h2></h2>
-                        <span class="date"></span>
+                        <h2>{{ $post->title }}</h2>
+                        <span class="date">{{ $post->created_at->format('M d, Y')}}</span>
                     </div>
                 </a>
             </div>
-          
+            @endforeach
             <div class="col-md-7">
-               
-                <a href="#"
+                @foreach($firstFooterPost as $post)
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}"
                     class="hentry img-2 v-height mb30 gradient"
-                    style="background-image: ;">
-                    <span class="post-category text-white bg-success"></span>
+                    style="background-image: url('{{ $post->image }}');">
+                    <span class="post-category text-white bg-success">{{ $post->category->name }}</span>
                     <div class="text text-sm">
-                        <h2></h2>
-                        <span class="date"></span>
+                        <h2>{{ $post->title }}</h2>
+                        <span class="date">{{ $post->created_at->format('M d, Y')}}</span>
                     </div>
                 </a>
-              
+                @endforeach
                 <div class="two-col d-block d-md-flex justify-content-between">
-                   
-                    <a href="#"
-                        class="hentry v-height img-2 gradient" style="background-image: ;">
-                        <span class="post-category text-white bg-primary"></span>
+                    @foreach($firstfooterPosts2 as $post)
+                    <a href="{{ route('website.post', ['slug' => $post->slug]) }}"
+                        class="hentry v-height img-2 gradient" style="background-image: url('{{ $post->image }}');">
+                        <span class="post-category text-white bg-primary">{{ $post->category->name }}</span>
                         <div class="text text-sm">
-                            <h2></h2>
-                            <span class="date"></span>
+                            <h2>{{ $post->title }}</h2>
+                            <span class="date">{{ $post->created_at->format('M d, Y')}}</span>
                         </div>
                     </a>
-                    
+                    @endforeach
                 </div>
             </div>
         </div>

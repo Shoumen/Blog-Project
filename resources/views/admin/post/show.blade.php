@@ -10,7 +10,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('website') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('post.index') }}">Post list</a></li>
                     <li class="breadcrumb-item active">View Post</li>
                 </ol>
@@ -49,7 +49,7 @@
                                 </tr>
                                 <tr>
                                     <th style="width: 200px">Category Name</th>
-                                    <td>{{ $post->category->name }}</td>
+                                    <td>{{ $post->category->name ??'none'}}</td>
                                 </tr>
                                 <tr>
                                     <th style="width: 200px">Post Tags</th>
@@ -61,7 +61,7 @@
                                 </tr>
                                 <tr>
                                     <th style="width: 200px">Author Name</th>
-                                    <td>{{ $post->user->name }}</td>
+                                    <td>{{ $post->user->name ??'none'}}</td>
                                 </tr>
                                 <tr>
                                     <th style="width: 200px">Description</th>
